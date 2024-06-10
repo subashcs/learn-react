@@ -1,0 +1,20 @@
+{
+  "name": "node-rollup-demo",
+  "version": "1.0.0",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "node dist/bundle.js",
+    "dev": "node index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^2.79.1"
+  }
+}

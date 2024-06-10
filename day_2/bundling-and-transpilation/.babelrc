@@ -1,0 +1,9 @@
+{
+  "presets": ["@babel/preset-env"],
+
+  "targets": {
+    //"esmodules": true, // Target modern browsers with ES module support
+    // OR target specific ES version
+    "ie": 11 // for ES2015 (ES6)
+  }
+}
