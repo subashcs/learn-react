@@ -1,8 +1,17 @@
+// For React component lifecycle demo uncomment Timer and see console logs
+// import Timer from "../components/Timer";
+
 const MainLayout = (props) => {
   return (
     <div className="app">
       <header className="header">
-        <h1>Todo App</h1>
+        <h1>
+          Todo App
+          {/* Just for demo commented intentionally
+            <span>
+            <Timer />
+          </span> */}
+        </h1>
       </header>
 
       <main className="main">

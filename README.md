@@ -15,20 +15,26 @@ This repository contains projects and tasks for students learning react. Also, f
 4. React Project Structure
 
 ## Day 3: React Overview
-4. React Components 
-5. How Component Renders in the Browser (Understanding JSX and JSX transpilation)
-6. Creating and importing components
-7. Class vs. functional components
-8. Pure components
+1. React Components 
+2. How Component Renders in the Browser (Understanding JSX and JSX transpilation)
+3. Creating and importing components
+4. Class vs. functional components
+5. Pure components
 
+## Day 4: Type of Rendering in React
+1. Client Side Rendering (CSR)
+2. Server Side Rendering (SSR)
+3. Server Side Generation (SSG)
+See [CSR vs SSR vs SSG](https://www.geeksforgeeks.org/server-side-rendering-vs-client-side-rendering-vs-server-side-generation/).
 
 ## Day 4: State and Props
-9. Managing state with the useState hook
-10. Passing data with props
-11. Utilizing the children prop
-12. Project: Simple TODO LIST
+1. Managing state with the useState hook 
+2. Passing data with props
+3. Utilizing the children prop
+4. Project: Simple TODO LIST
 
-
-
+## Day 5: Refs in React
+1. React.createRef
+2. React.useRef hook
 
 

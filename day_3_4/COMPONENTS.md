@@ -7,24 +7,6 @@ We can write components in two different ways in React.
    2. See https://react.dev/reference/react/Component to learn about component and component life cycle.
    3. The `this` object is used to access state, context and other APIs.
 
-### Class Component Lifecycle Methods:
-
-These methods are still available for class components, but they are not be the preferred approach for new React development. They are also called in the order they are listed while rendering.
-
-   1. constructor(props): 
-   Used for initializing state and binding event handlers.
-   2. static getDerivedStateFromProps(props, state): (Optional) 
-   Updates state based on changes in props. Rarely used in favor of useEffect with dependency array.
-   3. componentDidMount(): 
-   Invoked after the component mounts (inserts) into the DOM. Used for side effects like data fetching or subscriptions.
-   4. shouldComponentUpdate(nextProps, nextState): (Optional) 
-   Controls whether the component should re-render based on upcoming props and state. Rarely used in modern practice.
-   5. getSnapshotBeforeUpdate(prevProps, prevState): (Optional) 
-   Captures a snapshot of the DOM right before the update for potential use in componentDidUpdate.
-   6. componentDidUpdate(prevProps, prevState, snapshot):
-   Invoked after the component updates. Used for side effects that depend on state or props changes.
-   7. componentWillUnmount(): 
-   Invoked when the component is about to be unmounted (removed) from the DOM. Used for cleaning up subscriptions or timers.
 
 ## Functional Component
    1. Components using normal JavaScript function definition are Functional Components
