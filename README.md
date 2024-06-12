@@ -26,7 +26,7 @@ This repository contains projects and tasks for students learning react. Also, f
 9. Managing state with the useState hook
 10. Passing data with props
 11. Utilizing the children prop
-12. Project: Simple ecommerce store
+12. Project: Simple TODO LIST
 
 
 

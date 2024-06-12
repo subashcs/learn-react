@@ -1,0 +1,71 @@
+
+html,
+body, :root, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+.main {
+  display: inline-flex;
+  gap: 30px;
+}
+
+header {
+  background-color: #3e3c3c;
+  color: #fff;
+  margin: 0 0 10px 0;
+  padding: 10px;
+}
+
+.list-of-todos {
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+
+.todo {
+  text-decoration: none;
+  color: rgb(37, 37, 68);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px;
+
+}
+
+.todo .todo-text {
+  width: 300px;
+  background-color: rgb(216, 219, 222);
+  padding: 6px;
+}
+
+.completed > .todo-text{
+  text-decoration: line-through;
+  color: red;
+}
+
+.todo-form {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid gray;
+  padding: 10px;
+  display: block;
+}
+
+input, button {
+  margin: 5px;
+  padding: 5px;
+}
+
+button {
+  background-color: rgb(52, 81, 184);
+  border: 1px solid rgb(70, 70, 67);
+  color: #fff;
+  border-radius: 2px;
+}
