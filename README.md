@@ -36,5 +36,6 @@ See [CSR vs SSR vs SSG](https://www.geeksforgeeks.org/server-side-rendering-vs-c
 ## Day 5: Refs in React
 1. React.createRef
 2. React.useRef hook
+3. forwardRef
 
 

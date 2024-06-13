@@ -40,6 +40,10 @@ function App() {
     console.log("Adding new todo", newTodo);
     // Now update the todos List state to insert this newTodo
     // Your code goes here
+
+    setTodos((prevTodos) => {
+      return [...prevTodos, newTodo]; // appends new todo and return new array
+    });
   };
 
   const markAsCompleted = (id) => {

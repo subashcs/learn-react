@@ -1,6 +1,7 @@
 import TodoItem from "./TodoItem";
 
-function ListOfTodos({ todos, markAsCompleted }) {
+function ListOfTodos(props) {
+  const { todos, markAsCompleted } = props;
   return (
     <div className="list-of-todos">
       <h2>List of Todos</h2>

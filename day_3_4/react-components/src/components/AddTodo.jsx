@@ -23,9 +23,10 @@ export const AddTodo = ({ addTodo }) => {
   // get input element's value on change
   const handleChange = (event) => {
     const inputText = event.target.value;
+    console.log("event target", event.target);
     setTodoText(inputText);
   };
-
+  console.log("Todo Text", todoText);
   return (
     <div className="todo-form">
       <h2>Add Todo</h2>
