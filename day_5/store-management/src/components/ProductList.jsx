@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 
 const products = [
@@ -7,6 +8,13 @@ const products = [
 ];
 
 function ProductList() {
+  // list products by fetching from api by replacing constant
+  // moving the data fetching logic to a custom hook
+  useEffect(() => {
+    console.log("component mount");
+    fetch("http://localhost:3000/products");
+  }, []);
+
   return (
     <Table striped bordered hover>
       <thead>

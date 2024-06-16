@@ -56,6 +56,15 @@ function App() {
     const todoToUpdate = todos.find((item) => item.id === id);
     console.log("Updating todo", todoToUpdate.text);
     // Your code goes here
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => {
+        if (todo.id == id) {
+          console.log("Matching todo", todo);
+          return { ...todo, completed: true };
+        }
+        return todo;
+      })
+    );
   };
 
   // NOTE: notice how the MainLayout component can take jsx as input using children prop ie. props.children

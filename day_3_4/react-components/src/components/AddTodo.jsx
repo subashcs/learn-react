@@ -30,7 +30,7 @@ export const AddTodo = ({ addTodo }) => {
   return (
     <div className="todo-form">
       <h2>Add Todo</h2>
-      <form>
+      <form action="#">
         <input
           ref={inputRef}
           placeholder="Add Todo Item"
