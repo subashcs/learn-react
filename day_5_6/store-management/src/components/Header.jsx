@@ -8,7 +8,14 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 
-function Header() {
+function Header({ onSearch }) {
+  const handleSearch = (ev) => {
+    ev.preventDefault(); // prevent event propagation
+    const searchText = ev.target.value;
+    console.log("handle search", searchText);
+    onSearch(searchText);
+  };
+
   return (
     <Navbar bg="light" expand="lg" style={{ marginBottom: "20px" }}>
       <Container fluid>
@@ -36,6 +43,7 @@ function Header() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={handleSearch}
             />
             <Button variant="outline-success">Search</Button>
           </Form>

@@ -10,9 +10,13 @@ function ProductList() {
   const [products, setProducts] = useState(initialProducts);
 
   const getData = async () => {
-    const response = await fetch("http://localhost:3000/products");
-    const result = await response.json();
-    setProducts(result);
+    try {
+      const response = await fetch("http://localhost:3000/products");
+      const result = await response.json();
+      setProducts(result);
+    } catch (err) {
+      console.error(">>>>>>Error:", err);
+    }
   };
 
   // This function executes after component mounts on the dom

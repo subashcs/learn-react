@@ -7,7 +7,12 @@ import Header from "./components/Header";
 function App() {
   return (
     <Container>
-      <Header />
+      <Header
+        onSearch={(searchText) => {
+          // do something on search text change
+          console.log(searchText);
+        }}
+      />
       <Row>
         <Col>
           <AddProductForm />

@@ -25,12 +25,24 @@ app.post("/products", (req, res) => {
 
 // GET: Retrieve all products
 app.get("/products", (req, res) => {
-  db.all(`SELECT * FROM products`, [], (err, rows) => {
-    if (err) {
-      throw err;
+  const searchKey = req.query.searchKey || "";
+
+  // Escape user input to prevent SQL injection
+  const sanitizedSearchKey = `%${searchKey
+    .replace(/%/g, "\\%")
+    .replace(/_/g, "\\_")}%`;
+
+  db.all(
+    `SELECT * FROM products WHERE name LIKE ? ESCAPE '\\'`,
+    [sanitizedSearchKey],
+    (err, rows) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+        return;
+      }
+      res.status(200).json(rows);
     }
-    res.status(200).json(rows);
-  });
+  );
 });
 
 // GET: Retrieve a single product by id
