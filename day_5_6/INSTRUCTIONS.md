@@ -7,3 +7,6 @@ In this project, we will learn
 - Different types of data fetching libraries
 - When to fetch data
 - Using the useEffect hook to fetch data when component mounts
+
+# TASK
+Complete the task provides [here](./TASK.md)
