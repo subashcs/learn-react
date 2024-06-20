@@ -3,14 +3,17 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProductList from "./components/ProductList";
 import AddProductForm from "./components/AddProductForm";
 import Header from "./components/Header";
+import { useState } from "react";
 
 function App() {
+  const [searchKey, setSearchKey] = useState("");
+
   return (
     <Container>
       <Header
         onSearch={(searchText) => {
+          setSearchKey(searchText);
           // do something on search text change
-          console.log(searchText);
         }}
       />
       <Row>
@@ -18,7 +21,7 @@ function App() {
           <AddProductForm />
         </Col>
         <Col>
-          <ProductList />
+          <ProductList searchKey={searchKey} />
         </Col>
       </Row>
     </Container>

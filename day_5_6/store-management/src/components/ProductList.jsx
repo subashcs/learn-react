@@ -1,8 +1,8 @@
 import { Table, Button } from "react-bootstrap";
 import useProducts from "../hooks/useProducts";
 
-function ProductList() {
-  const products = useProducts();
+function ProductList({ searchKey }) {
+  const products = useProducts(searchKey);
 
   return (
     <Table striped bordered hover>

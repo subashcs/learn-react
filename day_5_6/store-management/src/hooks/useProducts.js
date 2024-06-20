@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+
 const initialProducts = [];
 
-function useProducts() {
+function useProducts(searchKey) {
   // list products by fetching from api by replacing constant
   // moving the data fetching logic to a custom hook
   const [products, setProducts] = useState(initialProducts);
 
-  const getData = async () => {
+  const getData = async (searchKey) => {
     try {
-      const response = await fetch("http://localhost:3000/products");
+      const response = await fetch(
+        `http://localhost:3000/products?searchKey=${searchKey}`
+      );
       const result = await response.json();
       setProducts(result);
     } catch (err) {
@@ -25,8 +28,9 @@ function useProducts() {
     // 1. Log the response to verify and then set the response
     // to products state
     // 2. you can use .then method to get the response from fetch request
-    getData();
-  }, []);
+    getData(searchKey);
+  }, [searchKey]);
+
   return products;
 }
 

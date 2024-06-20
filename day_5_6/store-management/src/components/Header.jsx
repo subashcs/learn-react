@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import {
   Navbar,
   Nav,
@@ -9,11 +10,16 @@ import {
 } from "react-bootstrap";
 
 function Header({ onSearch }) {
-  const handleSearch = (ev) => {
-    ev.preventDefault(); // prevent event propagation
-    const searchText = ev.target.value;
-    console.log("handle search", searchText);
+  const searchInputRef = useRef(null);
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const searchText = searchInputRef.current.value;
+    console.log("on click fired", searchText);
     onSearch(searchText);
+    // searchKey
+    // search
   };
 
   return (
@@ -39,13 +45,15 @@ function Header({ onSearch }) {
           </Nav>
           <Form className="d-flex">
             <FormControl
+              ref={searchInputRef}
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
-              onChange={handleSearch}
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={handleSubmit}>
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
