@@ -1,8 +1,11 @@
 import { Table, Button } from "react-bootstrap";
 import useProducts from "../hooks/useProducts";
+import { useStore } from "../contexts/StoreContext";
 
 function ProductList({ searchKey }) {
   const products = useProducts(searchKey);
+  const { state } = useStore();
+  console.log("got store state", state);
 
   return (
     <Table striped bordered hover>
