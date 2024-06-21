@@ -1,24 +1,32 @@
-import React, { createContext, useReducer, useContext, useState } from "react";
+import { createContext, useReducer, useContext, useState } from "react";
 
 // Define the initial state of the store
 const initialState = {
-  user: null,
-  isAuthenticated: false,
+  products: [],
+  matchingProducts: [],
 };
 
 // Define the reducer function to handle state changes
 const reducer = (state, action) => {
   switch (action.type) {
-    case "GET_PRODUCTS":
+    case "SET_PRODUCTS":
       return {
         ...state,
         products: action.payload,
+        matchingProducts: action.payload,
       };
-    case "ADD_PRODUCT":
+    case "SEARCH_PRODUCTS": {
+      // state.products
+      const searchText = action.payload;
       return {
         ...state,
-        products: [...state.products, action.payload],
+        matchingProducts: state.products.filter((product) => {
+          if (product.name.includes(searchText)) {
+            return product;
+          }
+        }),
       };
+    }
     default:
       return state;
   }
@@ -32,13 +40,13 @@ export const useStore = () => useContext(StoreContext);
 
 // Create a provider component
 export const StoreProvider = ({ children }) => {
-  //   const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const [state, setState] = useState("<context api>");
+  // const [state, setState] = useState("nabin");
+
+  const value = { state: state, dispatch: dispatch };
 
   return (
-    <StoreContext.Provider value={{ state, setState }}>
-      {children}
-    </StoreContext.Provider>
+    <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
   );
 };

@@ -8,9 +8,12 @@ import {
   Container,
   NavDropdown,
 } from "react-bootstrap";
+import { useStore } from "../contexts/StoreContext";
 
 function Header({ onSearch }) {
   const searchInputRef = useRef(null);
+  const { state } = useStore();
+  console.log("got store state", state);
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -34,7 +37,6 @@ function Header({ onSearch }) {
             navbarScroll
           >
             <Nav.Link href="#products">Products</Nav.Link>
-            <Nav.Link href="#inventory">Inventory</Nav.Link>
             <Nav.Link href="#orders">Orders</Nav.Link>
             <NavDropdown title="More" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Settings</NavDropdown.Item>
@@ -43,7 +45,7 @@ function Header({ onSearch }) {
               <NavDropdown.Item href="#action5">Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSubmit}>
             <FormControl
               ref={searchInputRef}
               type="search"
@@ -51,7 +53,11 @@ function Header({ onSearch }) {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success" onClick={handleSubmit}>
+            <Button
+              type="submit"
+              variant="outline-success"
+              onClick={handleSubmit}
+            >
               Search
             </Button>
           </Form>

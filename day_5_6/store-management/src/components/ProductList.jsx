@@ -1,11 +1,15 @@
 import { Table, Button } from "react-bootstrap";
 import useProducts from "../hooks/useProducts";
 import { useStore } from "../contexts/StoreContext";
+import { useEffect } from "react";
 
 function ProductList({ searchKey }) {
   const products = useProducts(searchKey);
-  const { state } = useStore();
-  console.log("got store state", state);
+  const { state, dispatch } = useStore();
+
+  useEffect(() => {
+    dispatch({ type: "SET_PRODUCTS", payload: products });
+  }, [products]);
 
   return (
     <Table striped bordered hover>
