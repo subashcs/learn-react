@@ -1,14 +1,14 @@
 import { Table, Button } from "react-bootstrap";
 import useProducts from "../hooks/useProducts";
-import { useStore } from "../contexts/StoreContext";
+import { SET_PRODUCTS, useStore } from "../contexts/StoreContext";
 import { useEffect } from "react";
 
-function ProductList({ searchKey }) {
-  const products = useProducts(searchKey);
+function ProductList() {
+  const products = useProducts();
   const { state, dispatch } = useStore();
 
   useEffect(() => {
-    dispatch({ type: "SET_PRODUCTS", payload: products });
+    dispatch({ type: SET_PRODUCTS, payload: products });
   }, [products]);
 
   return (
@@ -23,7 +23,7 @@ function ProductList({ searchKey }) {
         </tr>
       </thead>
       <tbody>
-        {products.map((product, index) => (
+        {state.matchingProducts.map((product, index) => (
           <tr key={product.id}>
             <td>{index + 1}</td>
             <td>{product.name}</td>

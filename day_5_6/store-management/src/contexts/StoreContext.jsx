@@ -6,16 +6,19 @@ const initialState = {
   matchingProducts: [],
 };
 
+export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+
 // Define the reducer function to handle state changes
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_PRODUCTS":
+    case SET_PRODUCTS:
       return {
         ...state,
         products: action.payload,
         matchingProducts: action.payload,
       };
-    case "SEARCH_PRODUCTS": {
+    case SEARCH_PRODUCTS: {
       // state.products
       const searchText = action.payload;
       return {

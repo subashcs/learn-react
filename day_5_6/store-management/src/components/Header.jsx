@@ -8,21 +8,23 @@ import {
   Container,
   NavDropdown,
 } from "react-bootstrap";
-import { useStore } from "../contexts/StoreContext";
+import { SEARCH_PRODUCTS, useStore } from "../contexts/StoreContext";
 
-function Header({ onSearch }) {
+function Header() {
   const searchInputRef = useRef(null);
-  const { state } = useStore();
-  console.log("got store state", state);
+  const { dispatch } = useStore();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
     const searchText = searchInputRef.current.value;
-    console.log("on click fired", searchText);
-    onSearch(searchText);
-    // searchKey
-    // search
+
+    const action = {
+      type: SEARCH_PRODUCTS,
+      payload: searchText,
+    };
+
+    dispatch(action);
   };
 
   return (
