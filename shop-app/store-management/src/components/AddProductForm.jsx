@@ -2,8 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import { Toaster } from "./Toaster";
+import { ADD_PRODUCT, useStore } from "../contexts/StoreContext";
 
 function AddProductForm() {
+  const { dispatch } = useStore();
   const [data, setData] = useState({
     name: "",
     price: "",
@@ -27,26 +29,43 @@ function AddProductForm() {
     });
   };
 
+  const addToastMessage = ({ message, type }) => {
+    // add toast message
+    setToastMessage({
+      message: message,
+      type: type,
+    });
+    // remove toast message after 2 seconds
+    setTimeout(() => {
+      setToastMessage({ message: "" });
+    }, 2000);
+  };
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     const requestData = data;
     // const requestMethod = "POST";
-    const requestURL = "http://localhost:3000/products";
-    const request = await axios.post(requestURL, requestData);
-    console.log("request", request);
-    if (request.status == 201) {
-      // add toast message
-      setToastMessage({
-        message: "Successfully added product",
-        type: "success",
+    try {
+      const requestURL = "http://localhost:3000/products";
+      const response = await axios.post(requestURL, requestData);
+      if (response.status == 201) {
+        addToastMessage({
+          message: "Successfully added product",
+          type: "success",
+        });
+        requestData.id = response.data.id;
+        dispatch({
+          type: ADD_PRODUCT,
+          payload: requestData,
+        });
+      }
+    } catch (e) {
+      addToastMessage({
+        message: "Error adding product",
+        type: "error",
       });
-      // remove toast message after 2 seconds
-      setTimeout(() => {
-        setToastMessage({ message: "" });
-      }, 2000);
     }
   };
-  console.log("data", data);
 
   return (
     <>

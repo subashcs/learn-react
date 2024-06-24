@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 // POST: Create a new product
 app.post("/products", (req, res) => {
   const { name, description, price, quantity } = req.body;
+
+  if (!name) {
+    res.status(400).send({ message: "Invalid request data" });
+  }
+
   db.run(
     `INSERT INTO products (name, description, price, quantity) VALUES (?, ?, ?, ?)`,
     [name, description, price, quantity],

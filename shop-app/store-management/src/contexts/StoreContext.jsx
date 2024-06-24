@@ -9,6 +9,8 @@ const initialState = {
 export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
 export const SET_PRODUCTS = "SET_PRODUCTS";
 
+export const ADD_PRODUCT = "ADD_PRODUCT";
+
 // Define the reducer function to handle state changes
 const reducer = (state, action) => {
   switch (action.type) {
@@ -28,6 +30,15 @@ const reducer = (state, action) => {
             return product;
           }
         }),
+      };
+    }
+    case ADD_PRODUCT: {
+      const product = action.payload;
+      const newProductList = [...state.products, product];
+      return {
+        ...state,
+        products: newProductList,
+        matchingProducts: newProductList,
       };
     }
     default:
