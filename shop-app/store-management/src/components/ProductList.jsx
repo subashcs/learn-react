@@ -16,11 +16,20 @@ function ProductList() {
   }, [products]);
 
   const handleDelete = async (id) => {
-    const url = getDeleteURL(); //productID // find issue and complete
-    const response = await axios.delete(url);
-    console.log(response);
-    if (response.status === 200) {
-      window.location.reload();
+    console.log("id", id);
+    try {
+      const url = getDeleteURL(id); //productID // find issue and complete
+      const response = await axios.delete(url);
+      if (response.status === 200) {
+        window.location.reload();
+        // TODO: on success remove item from store
+        // do not reload
+      } else {
+        console.error(`Could not delete item ${id}`);
+      }
+    } catch (err) {
+      console.error(err?.message);
+      // TODO: Display toast on error
     }
   };
 
