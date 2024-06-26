@@ -8,6 +8,7 @@ import {
   Container,
   NavDropdown,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { SEARCH_PRODUCTS, useStore } from "../contexts/StoreContext";
 
 function Header() {
@@ -30,7 +31,9 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg" style={{ marginBottom: "20px" }}>
       <Container fluid>
-        <Navbar.Brand href="#home">StoreManager</Navbar.Brand>
+        <Link to="/" className="navbar-brand">
+          StoreManager
+        </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -38,8 +41,16 @@ function Header() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#products">Products</Nav.Link>
-            <Nav.Link href="#orders">Orders</Nav.Link>
+            <Link to="/" className="nav-link">
+              Dashboard
+            </Link>
+            <Link to="/products" className="nav-link">
+              Products
+            </Link>
+            {/* The following is the normal link that uses the html <a> tag
+              Notice the difference between react router dom link and normal link
+            */}
+            <Nav.Link href="/orders">Orders</Nav.Link>
             <NavDropdown title="More" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Settings</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Support</NavDropdown.Item>

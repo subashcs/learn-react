@@ -1,4 +1,4 @@
-# READING
+# READING OLD
 
 ## Higher Order Components (HOC)
 
@@ -27,9 +27,27 @@ In this case you can use custom `useAuth` hook or Wrapper `AuthLayout` Component
 A wrapper component is a new component that renders another component (the wrapped component) and potentially adds additional functionality or UI elements around it.
 While both wrapper components and HOCs can achieve similar results, wrapper components generally align better with React's philosophy of composable and declarative components. For most new development, using wrapper components and hooks is the recommended approach.
 
+## Context API
+[Read here](https://react.dev/reference/react/useContext)
+
+
+## UseReducer hook
+[Read Here](https://react.dev/reference/react/useReducer)
+
 Example:
 ```javascript
  <WrapperComponent>
         <MyComponent message="This component is wrapped!" />
  </WrapperComponent>
 ```
+
+
+# Day 13
+
+See [Setup](./SETUP.md) instructions for React Router here.
+
+Read about:
+ - [React Router](https://reactrouter.com/en/main/start/tutorial#setup)
+
+
+

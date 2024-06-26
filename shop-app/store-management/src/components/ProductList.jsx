@@ -1,7 +1,7 @@
 import { Table, Button } from "react-bootstrap";
 import useProducts from "../hooks/useProducts";
-import { SET_PRODUCTS, useStore } from "../contexts/StoreContext";
-import { useEffect } from "react";
+import { EDIT_PRODUCT, SET_PRODUCTS, useStore } from "../contexts/StoreContext";
+import { useCallback, useEffect } from "react";
 import axios from "axios";
 
 const getDeleteURL = (productId) =>
@@ -15,15 +15,15 @@ function ProductList() {
     dispatch({ type: SET_PRODUCTS, payload: products });
   }, [products]);
 
-  const handleDelete = async (id) => {
-    console.log("id", id);
+  const handleDelete = useCallback(async (id) => {
     try {
       const url = getDeleteURL(id); //productID // find issue and complete
       const response = await axios.delete(url);
       if (response.status === 200) {
+        // TASK: on success remove item from store
+        // do not reload using window.location
+        // hint create and use DELETE_PRODUCT action
         window.location.reload();
-        // TODO: on success remove item from store
-        // do not reload
       } else {
         console.error(`Could not delete item ${id}`);
       }
@@ -31,6 +31,13 @@ function ProductList() {
       console.error(err?.message);
       // TODO: Display toast on error
     }
+  }, []);
+
+  const handleEdit = (id) => {
+    dispatch({
+      type: EDIT_PRODUCT,
+      productId: id,
+    });
   };
 
   return (
@@ -52,8 +59,16 @@ function ProductList() {
             <td>${product.price}</td>
             <td>{product.quantity}</td>
             <td>
-              <Button variant="info">Edit</Button>{" "}
-              <Button variant="danger" onClick={() => handleDelete(product.id)}>
+              <Button variant="info" onClick={() => handleEdit(product.id)}>
+                Edit
+              </Button>
+              <Button
+                variant="danger"
+                onClick={function () {
+                  handleDelete(product.id);
+                }}
+                className="mx-4"
+              >
                 Delete
               </Button>
             </td>

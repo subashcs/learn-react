@@ -1,15 +1,23 @@
-import { createContext, useReducer, useContext, useState } from "react";
+import { createContext, useReducer, useContext } from "react";
 
+const initialFormData = {
+  name: "",
+  price: "",
+  quantity: "",
+};
 // Define the initial state of the store
 const initialState = {
   products: [],
   matchingProducts: [],
+  currentEditProduct: initialFormData,
 };
 
 export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
 export const SET_PRODUCTS = "SET_PRODUCTS";
 
 export const ADD_PRODUCT = "ADD_PRODUCT";
+export const EDIT_PRODUCT = "EDIT_PRODUCT";
+export const UPDATE_PRODUCT = "UPDATE_PRODUCT";
 
 // Define the reducer function to handle state changes
 const reducer = (state, action) => {
@@ -41,6 +49,37 @@ const reducer = (state, action) => {
         matchingProducts: newProductList,
       };
     }
+    case EDIT_PRODUCT: {
+      const productId = action.productId;
+      const currentEditProduct = state.matchingProducts.filter(
+        (product) => product.id == productId
+      )[0];
+
+      return {
+        ...state,
+        currentEditProduct,
+      };
+    }
+    case UPDATE_PRODUCT: {
+      const product = action.payload;
+      let newProductList = state.products.filter(
+        (item) => item.id !== product.id
+      );
+      newProductList = [...newProductList, product];
+
+      // update matching products separately to preserve search list
+      let newMatchingProductList = state.matchingProducts.filter(
+        (item) => item.id !== product.id
+      );
+      newMatchingProductList = [...newMatchingProductList, product];
+
+      return {
+        products: newProductList,
+        matchingProducts: newMatchingProductList,
+        currentEditProduct: initialFormData,
+      };
+    }
+
     default:
       return state;
   }

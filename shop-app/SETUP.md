@@ -54,3 +54,10 @@ body {
 import { Table, Button } from 'react-bootstrap';
 ```
 
+# Day 13
+
+## Setting up React Router
+- Set up React router
+  `npm install react-router-dom` 
+  This will install the latest react router version.
+- Setup Router in your root component `App.jsx` in our case. View `./store-management/src/App.jsx` in our case.

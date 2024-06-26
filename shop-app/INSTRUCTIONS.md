@@ -10,3 +10,5 @@ In this project, we will learn
 
 # TASK
 Complete the task provides [here](./TASK.md)
+
+Note: Task, Setup guided and Reading for each day are provided under `day` title. Example task for day 13 will be provided under title **day_13**.

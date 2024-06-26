@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
 import { Toaster } from "./Toaster";
-import { ADD_PRODUCT, useStore } from "../contexts/StoreContext";
+import {
+  ADD_PRODUCT,
+  UPDATE_PRODUCT,
+  useStore,
+} from "../contexts/StoreContext";
 
 function AddProductForm() {
-  const { dispatch } = useStore();
+  const {
+    state: { currentEditProduct },
+    dispatch,
+  } = useStore();
+
   const [data, setData] = useState({
     name: "",
     price: "",
@@ -16,6 +24,10 @@ function AddProductForm() {
     message: "",
     type: "error",
   });
+
+  useEffect(() => {
+    setData(currentEditProduct);
+  }, [currentEditProduct]);
 
   const handleChange = (ev) => {
     ev.preventDefault();
@@ -67,6 +79,39 @@ function AddProductForm() {
     }
   };
 
+  const handleUpdate = () => {
+    const updateData = data;
+    const id = currentEditProduct.id;
+    const url = `http://localhost:3000/products/${id}`;
+    axios
+      .put(url, updateData)
+      .then((res) => {
+        console.log(res);
+        dispatch({
+          type: UPDATE_PRODUCT,
+          payload: {
+            ...updateData,
+            id,
+          },
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  const renderButtons = () => {
+    return currentEditProduct?.id ? (
+      <Button variant="primary" type="button" onClick={handleUpdate}>
+        Update
+      </Button>
+    ) : (
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    );
+  };
+
   return (
     <>
       {toastMessage.message && (
@@ -106,10 +151,7 @@ function AddProductForm() {
             placeholder="Quantity"
           />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        {renderButtons()}
       </Form>
     </>
   );

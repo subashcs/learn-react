@@ -1,26 +1,34 @@
-// import React from "react";  // NOTE: this import may be required in some bundlers but not required in vite
-import { Container, Row, Col } from "react-bootstrap";
-import ProductList from "./components/ProductList";
-import AddProductForm from "./components/AddProductForm";
-import Header from "./components/Header";
-import { StoreProvider } from "./contexts/StoreContext";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Products from "./views/Products";
+import RootLayout from "./layout/RootLayout";
+import Orders from "./views/Orders";
+import Dashboard from "./views/Dashboard";
+
+const routes = [
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "products/",
+        element: <Products />,
+      },
+      {
+        path: "orders/",
+        element: <Orders />,
+      },
+      {
+        path: "/",
+        element: <Dashboard />,
+      },
+    ],
+  },
+];
+
+const router = createBrowserRouter(routes);
 
 function App() {
-  return (
-    <StoreProvider>
-      <Container>
-        <Header />
-        <Row>
-          <Col>
-            <AddProductForm />
-          </Col>
-          <Col>
-            <ProductList />
-          </Col>
-        </Row>
-      </Container>
-    </StoreProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
