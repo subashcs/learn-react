@@ -54,4 +54,16 @@ See [CSR vs SSR vs SSG](https://www.geeksforgeeks.org/server-side-rendering-vs-c
 
 ## Day 12: Routing
 
+## Day 13: Routing, useMemo and useCallback hook
+
+## Day 14: Routing and Suspense API
+
+## Day 15: Styling 
+
+## Day 16: Modifying website metadata
+
+## Day 16: Setting up Next JS Project
+
+
+
 
