@@ -3,6 +3,7 @@ import Products from "./views/Products";
 import RootLayout from "./layout/RootLayout";
 import Orders from "./views/Orders";
 import Dashboard from "./views/Dashboard";
+import { Product } from "./views/Product";
 
 const routes = [
   {
@@ -12,6 +13,10 @@ const routes = [
       {
         path: "products/",
         element: <Products />,
+      },
+      {
+        path: "product/:productId",
+        element: <Product />,
       },
       {
         path: "orders/",

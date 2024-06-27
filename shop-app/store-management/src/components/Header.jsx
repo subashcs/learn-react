@@ -50,7 +50,9 @@ function Header() {
             {/* The following is the normal link that uses the html <a> tag
               Notice the difference between react router dom link and normal link
             */}
-            <Nav.Link href="/orders">Orders</Nav.Link>
+            <Link to="/orders" className="nav-link">
+              Orders
+            </Link>
             <NavDropdown title="More" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Settings</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Support</NavDropdown.Item>
