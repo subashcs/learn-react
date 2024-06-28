@@ -47,7 +47,7 @@ Main features of Next.js:
 
 ### Adding a new page 
 Lets add a page named dashboard 
-1. Create a folder named dashboard and inside it create a file named `page.js`. Inside `page.js` create a react component named dashboard. Add default export for the newly created react component. 
+1. Create a folder named dashboard inside `src/app` and inside it create a file named `page.js`. Inside `page.js` create a react component named dashboard. Add default export for the newly created react component. 
 2. Now navigate to `http://localhost:3001/dashboard` to see the content of this new page.
 
 For more details view [official documentation](https://nextjs.org/docs/app/building-your-application)
