@@ -38,4 +38,32 @@ See [CSR vs SSR vs SSG](https://www.geeksforgeeks.org/server-side-rendering-vs-c
 2. React.useRef hook
 3. forwardRef
 
+## Day 6: Data fetching in React
+
+## Day 7: Form and Event handling
+
+## Day 8: React Context API
+
+## Day 9: Global state with useReducer hook and useContext hook
+
+## Day 10: Global state with useReducer hook and useContext hook
+
+***From day 10 onwards you can view the incremental chanages in branches eg: day_10, day_11 etc.***
+
+## Day 11: Performing CRUD operations with a RESTful API
+
+## Day 12: Routing
+
+## Day 13: Routing, useMemo and useCallback hook
+
+## Day 14: Routing and Suspense API
+
+## Day 15: Styling 
+
+## Day 16: Modifying website metadata
+
+## Day 16: Setting up Next JS Project
+
+
+
 
