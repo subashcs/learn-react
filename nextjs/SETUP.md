@@ -63,3 +63,23 @@ For more details view [official documentation](https://nextjs.org/docs/app/build
 [iTasks](https://github.com/alsiam/iTasks/tree/main)
 [Portfolio](https://github.com/vercel/nextjs-portfolio-starter/tree/main)
 
+
+## Building for production
+  
+### Vite app
+  1. Run `npm run build`
+  2. Open the index.html file in the `dist` folder 
+
+## Next app
+1. Run `npm run build`
+2. Run `npm start`
+
+
+## JAMStack
+[See doc here](https://www.netlify.com/jamstack/)
+
+### Gatsby setup
+1. https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/
+2. https://www.gatsbyjs.com/docs/tutorial/getting-started/part-1/
+
+## Using gatsby starter templates
