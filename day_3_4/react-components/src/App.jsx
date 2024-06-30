@@ -24,7 +24,7 @@ const initialTodos = [
 
 function App() {
   const [todos, setTodos] = useState(initialTodos);
-
+  console.log("aa", import.meta.env.VITE_APP_API_URL);
   const addTodo = (text) => {
     /**
      * TASK:1
