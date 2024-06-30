@@ -25,9 +25,9 @@ class Timer extends Component {
     return nextState.seconds % 2 === 0; // Only re-render on even seconds
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("Timer updated");
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("Timer updated");
+  // }
 
   componentWillUnmount() {
     console.log("Timer will unmount");
