@@ -40,9 +40,6 @@ Here is the guide to setting things up.
 1. https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/
 2. https://www.gatsbyjs.com/docs/tutorial/getting-started/part-1/
 
-## Using Gatsby starter templates
-Gatsby starter templates can be found [here](https://www.gatsbyjs.com/starters/ ). Also you can browse directly on [GitHub](https://github.com/gatsbyjs/)
-
 
 
 # Deployment options

@@ -2,6 +2,13 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  // useEffect is not allowed in server rendered componenets
+  // by default components are server rendered in next js
+  // uncommenting following code will cause issues
+  // useEffect(() => {
+  //   console.log("using use effect");
+  // }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>

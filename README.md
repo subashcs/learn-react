@@ -64,6 +64,13 @@ See [CSR vs SSR vs SSG](https://www.geeksforgeeks.org/server-side-rendering-vs-c
 
 ## Day 16: Setting up Next JS Project
 
+## Day 18: Deploy your React APP
+
+## Day 19
+- Creating a porfolio using Gatsby
+- Hosting your portfolio on netlify
+  
+
 
 
 
